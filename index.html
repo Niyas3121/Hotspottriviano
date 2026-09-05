@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Chauffeur-driven tours across Trivandrum, Varkala, Ponmudi, and Kanyakumari with transparent pricing and local guides.">
+  <title>Hotspot Triviano | Tours, Travels &amp; Destination Experiences</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #030712;
+      --card-bg: #0b1120;
+      --card-border: #1e293b;
+      --primary: #38bdf8;
+      --primary-hover: #0284c7;
+      --text-light: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-green: #22c55e;
+      --accent-gold: #f59e0b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(3, 7, 18, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .logo-text h1 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      line-height: 1.1;
+    }
+
+    .logo-text p {
+      font-size: 0.65rem;
+      color: var(--primary);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-nav {
+      background: var(--primary);
+      color: #030712 !important;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .btn-nav:hover {
+      background: var(--primary-hover);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-light);
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      padding: 140px 5% 60px 5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: radial-gradient(circle at 50% 30%, #0f172a 0%, #030712 80%);
+    }
+
+    .badge {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      max-width: 800px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-primary, .btn-whatsapp {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #030712;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-whatsapp {
+      background: #25d366;
+      color: #ffffff;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1eb956;
+      transform: translateY(-2px);
+    }
+
+    /* Common Section Styles */
+    section {
+      padding: 80px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Stats Section */
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+      margin: 20px 0;
+    }
+
+    .stat-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Packages */
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+    }
+
+    .card-duration {
+      font-size: 0.8rem;
+      color: var(--primary);
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .card-header h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .card-highlights {
+      list-style: none;
+      margin: 18px 0;
+    }
+
+    .card-highlights li {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-highlights li i {
+      color: var(--primary);
+      font-size: 0.8rem;
+    }
+
+    .card-price {
+      margin-top: 15px;
+      border-top: 1px solid var(--card-border);
+      padding-top: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .price-value {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-light);
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      position: relative;
+      height: 260px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      background: var(--card-bg);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease, filter 0.5s ease;
+      display: block;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+      filter: brightness(0.85);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 15px 12px;
+      background: linear-gradient(to top, rgba(3, 7, 18, 0.95), transparent);
+      display: flex;
+      flex-direction: column;
+      transform: translateY(10px);
+      opacity: 0.9;
+      transition: all 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-caption {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .gallery-caption h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .gallery-caption span {
+      font-size: 0.75rem;
+      color: var(--primary);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Why Choose Us */
+    .why-choose-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .why-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .why-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+    }
+
+    .why-icon {
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .why-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .why-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .testimonial-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .stars {
+      color: var(--accent-gold);
+      margin-bottom: 12px;
+    }
+
+    .testimonial-text {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+      font-style: italic;
+      flex-grow: 1;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid var(--card-border);
+      padding-top: 14px;
+    }
+
+    .author-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #030712;
+      font-weight: 800;
+      font-size: 0.85rem;
+    }
+
+    .author-info h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .author-info p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Fleet Showcase */
+    .vehicle-box {
+      background: linear-gradient(145deg, #090e1a, #0b1120);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 35px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .vehicle-info h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .vehicle-info p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .features-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .features-list li {
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .features-list li i {
+      color: var(--accent-green);
+    }
+
+    /* Booking Form */
+    .booking-container {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 35px;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text-muted);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 16px;
+      background: #030712;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      color: var(--text-light);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 50px 5% 25px 5%;
+      background: #02050e;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 35px;
+      margin-bottom: 35px;
+    }
+
+    .footer-section h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-section a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--card-border);
+      padding-top: 20px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Floating WhatsApp Button */
+    .floating-wa {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25d366;
+      color: white;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.8rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      z-index: 1000;
+      text-decoration: none;
+      transition: transform 0.3s;
+    }
+
+    .floating-wa:hover {
+      transform: scale(1.1);
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #030712;
+        flex-direction: column;
+        padding: 20px 5%;
+        border-bottom: 1px solid var(--card-border);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hero {
+        padding: 120px 5% 40px 5%;
+      }
+
+      .hero h1 {
+        font-size: 2.1rem;
+      }
+
+      .vehicle-box {
+        grid-template-columns: 1fr;
+      }
+
+      .features-list {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .btn-primary, .btn-whatsapp {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#" class="logo-container">
+      <svg width="34" height="34" viewBox="0 0 50 50" fill="none">
+        <path d="M25 5 L45 16.5 V39.5 L25 51 L5 39.5 V16.5 Z" stroke="#38bdf8" stroke-width="2.5" fill="none" opacity="0.4"/>
+        <path d="M25 12 L39 20 V36 L25 44 L11 36 V20 Z" fill="#0284c7" />
+        <circle cx="25" cy="24" r="4" fill="#ffffff"/>
+        <path d="M25 28 L25 40" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M17 20 C19 17 22 15 25 15 C28 15 31 17 33 20" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" fill="none"/>
+      </svg>
+      <div class="logo-text">
+        <h1>HOTSPOT TRIVIANO</h1>
+        <p>Tours &amp; Travels</p>
+      </div>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#why-us">Why Us</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#vehicle">Fleet</a></li>
+      <li><a href="#booking">Book Now</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="tel:+919562779369" class="btn-nav"><i class="fa-solid fa-phone"></i> +91 95627 79369</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="hero">
+    <div class="badge">Explore Trivandrum &amp; Beyond</div>
+    <h1>Personalized Kerala Travel &amp; <span>Scenic Holiday Tours</span></h1>
+    <p>Your trusted travel partner. Discover pristine beaches, misty hill stations, and iconic heritage spots with comfortable, hassle-free private rides.</p>
+    <div class="hero-buttons">
+      <a href="#booking" class="btn-primary"><i class="fa-solid fa-calendar-check"></i> Plan a Trip</a>
+      <a href="https://wa.me/919562779369?text=Hello%20Hotspot%20Triviano,%20I%20would%20like%20to%20know%20more%20about%20your%20tour%20packages." target="_blank" rel="noopener noreferrer" class="btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+    </div>
+  </header>
+
+  <!-- Statistics -->
+  <section style="padding: 40px 5%; background: rgba(15, 23, 42, 0.5);">
+    <div class="stats-container">
+      <div class="stat-box">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Happy Travelers</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">25+</div>
+        <div class="stat-label">Destinations</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">5★</div>
+        <div class="stat-label">Customer Rating</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">2+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tour Packages -->
+  <section id="packages">
+    <div class="section-title">
+      <h2>Curated Travel Itineraries</h2>
+      <p>Customized single-day and weekend travel packages designed around your schedule.</p>
+    </div>
+    <div class="packages-grid">
+      <!-- Box 1 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-duration">2 Days / 1 Night</div>
+          <h3>Trivandrum City &amp; Varkala Cliff</h3>
+        </div>
+        <ul class="card-highlights">
+          <li><i class="fa-solid fa-check"></i> Beemapally &amp; Sree Padmanabhaswamy</li>
+          <li><i class="fa-solid fa-check"></i> Napier Museum &amp; Lulu Mall</li>
+          <li><i class="fa-solid fa-check"></i> Kovalam Sunset &amp; Vizhinjam Harbour</li>
+          <li><i class="fa-solid fa-check"></i> Varkala Cliff, Papanasam Beach &amp; Kappil</li>
+        </ul>
+        <div class="card-price">
+          <div>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Pricing</span>
+            <div class="price-value" style="font-size: 1.1rem;">On Request</div>
+          </div>
+          <a href="#booking" class="btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">Enquire</a>
+        </div>
+      </div>
+
+      <!-- Box 2 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-duration">Full Day Tour</div>
+          <h3>Ponmudi Hill &amp; Golden Peak</h3>
+        </div>
+        <ul class="card-highlights">
+          <li><i class="fa-solid fa-check"></i> 22 Hairpin Curves Scenic Drive</li>
+          <li><i class="fa-solid fa-check"></i> Kallar River &amp; Meenmutty Falls</li>
+          <li><i class="fa-solid fa-check"></i> Mist Viewpoints &amp; Tea Gardens</li>
+          <li><i class="fa-solid fa-check"></i> Private AC Pickup &amp; Drop</li>
+        </ul>
+        <div class="card-price">
+          <div>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Pricing</span>
+            <div class="price-value" style="font-size: 1.1rem;">On Request</div>
+          </div>
+          <a href="#booking" class="btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">Enquire</a>
+        </div>
+      </div>
+
+      <!-- Box 3 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-duration">Full Day Tour</div>
+          <h3>Kanyakumari Sunset Excursion</h3>
+        </div>
+        <ul class="card-highlights">
+          <li><i class="fa-solid fa-check"></i> Padmanabhapuram Palace</li>
+          <li><i class="fa-solid fa-check"></i> Suchindram Temple Visit</li>
+          <li><i class="fa-solid fa-check"></i> Vivekananda Rock &amp; Thiruvalluvar Statue</li>
+          <li><i class="fa-solid fa-check"></i> Triveni Sangam Sunset Viewing</li>
+        </ul>
+        <div class="card-price">
+          <div>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Pricing</span>
+            <div class="price-value" style="font-size: 1.1rem;">On Request</div>
+          </div>
+          <a href="#booking" class="btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">Enquire</a>
+        </div>
+      </div>
+
+      <!-- Box 4 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-duration">Full Day Tour</div>
+          <h3>Alleppey Backwaters</h3>
+        </div>
+        <ul class="card-highlights">
+          <li><i class="fa-solid fa-check"></i> Vembanad Lake Shikara Cruise</li>
+          <li><i class="fa-solid fa-check"></i> Traditional Village Canals</li>
+          <li><i class="fa-solid fa-check"></i> Alleppey Beach &amp; Old Pier</li>
+          <li><i class="fa-solid fa-check"></i> Scenic Highway Coastal Drive</li>
+        </ul>
+        <div class="card-price">
+          <div>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Pricing</span>
+            <div class="price-value" style="font-size: 1.1rem;">On Request</div>
+          </div>
+          <a href="#booking" class="btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">Enquire</a>
+        </div>
+      </div>
+
+      <!-- Box 5 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-duration">Half / Full Day</div>
+          <h3>Poovar Island &amp; Backwaters</h3>
+        </div>
+        <ul class="card-highlights">
+          <li><i class="fa-solid fa-check"></i> Neyyar River Motor Boat Cruise</li>
+          <li><i class="fa-solid fa-check"></i> Golden Sand Beach &amp; Estuary View</li>
+          <li><i class="fa-solid fa-check"></i> Mangrove Forest Canal Ride</li>
+          <li><i class="fa-solid fa-check"></i> Floating Restaurant Visit</li>
+        </ul>
+        <div class="card-price">
+          <div>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Pricing</span>
+            <div class="price-value" style="font-size: 1.1rem;">On Request</div>
+          </div>
+          <a href="#booking" class="btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">Enquire</a>
+        </div>
+      </div>
+
+      <!-- Box 6 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-duration">Full Day Tour</div>
+          <h3>Trivandrum City &amp; Heritage</h3>
+        </div>
+        <ul class="card-highlights">
+          <li><i class="fa-solid fa-check"></i> Sree Padmanabhaswamy Temple</li>
+          <li><i class="fa-solid fa-check"></i> Napier Museum &amp; Art Gallery</li>
+          <li><i class="fa-solid fa-check"></i> Kuthira Malika Palace</li>
+          <li><i class="fa-solid fa-check"></i> Lulu Mall &amp; Local City Sights</li>
+        </ul>
+        <div class="card-price">
+          <div>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Pricing</span>
+            <div class="price-value" style="font-size: 1.1rem;">On Request</div>
+          </div>
+          <a href="#booking" class="btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">Enquire</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Gallery -->
+  <section id="gallery">
+    <div class="section-title">
+      <h2>Photo Gallery</h2>
+      <p>Breathtaking landscapes and cultural landmarks across Kerala.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="Varkala.jpg" alt="Varkala Cliff Beach" loading="lazy">
+        <div class="gallery-caption">
+          <h4>Varkala Cliff</h4>
+          <span>Papanasam Beach &amp; Arabian Sea</span>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="Ponmudi.jpg" alt="Ponmudi" loading="lazy">
+        <div class="gallery-caption">
+          <h4>Ponmudi Golden Peak</h4>
+          <span>Misty Tea Gardens &amp; Hairpins</span>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="Kovalam.jpg" alt="Kovalam Lighthouse Beach" loading="lazy">
+        <div class="gallery-caption">
+          <h4>Kovalam Lighthouse Beach</h4>
+          <span>Golden Sands &amp; Coastal Sunsets</span>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="Alappuzha.jpg" alt="Kerala Backwaters Houseboat" loading="lazy">
+        <div class="gallery-caption">
+          <h4>Backwaters &amp; Lagoons</h4>
+          <span>Scenic Canals &amp; Houseboat Cruises</span>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="Kanyakumari.jpg" alt="Kanyakumari Coastline" loading="lazy">
+        <div class="gallery-caption">
+          <h4>Kanyakumari Coast</h4>
+          <span>Triveni Sangam &amp; Memorial</span>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="Padmanabhaswamy.jpeg" alt="Sree Padmanabhaswamy Temple" loading="lazy">
+        <div class="gallery-caption">
+          <h4>Heritage &amp; Architecture</h4>
+          <span>Trivandrum Royal Palaces &amp; Temples</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section id="why-us">
+    <div class="section-title">
+      <h2>Why Choose Hotspot Triviano</h2>
+      <p>Experience travel like never before with our dedicated services.</p>
+    </div>
+    <div class="why-choose-grid">
+      <div class="why-card">
+        <div class="why-icon"><i class="fa-solid fa-star"></i></div>
+        <h3>Expert Local Guides</h3>
+        <p>Experienced drivers with deep knowledge of Kerala's hidden gems and local culture.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fa-solid fa-car"></i></div>
+        <h3>Premium Fleet</h3>
+        <p>Well-maintained, air-conditioned vehicles equipped with modern comfort features.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>100% Safe &amp; Secure</h3>
+        <p>All drivers are verified with excellent safety records and professional training.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fa-solid fa-tag"></i></div>
+        <h3>Transparent Pricing</h3>
+        <p>No hidden charges. Fuel, toll, and parking included in all packages.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fa-solid fa-clock"></i></div>
+        <h3>24/7 Support</h3>
+        <p>Round-the-clock customer support to assist you throughout your journey.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon"><i class="fa-solid fa-sliders"></i></div>
+        <h3>Customizable Tours</h3>
+        <p>Tailor-made itineraries designed specifically for your travel preferences.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section id="testimonials">
+    <div class="section-title">
+      <h2>Guest Testimonials</h2>
+      <p>Real experiences from travelers who've explored Kerala with us.</p>
+    </div>
+    <div class="testimonials-grid">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <div class="testimonial-text">"An absolutely wonderful experience! The driver was polite, the car was clean, and we discovered places we never knew existed. Highly recommended!"</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">H</div>
+          <div class="author-info">
+            <h4>Hudaina</h4>
+            <p>Kerala</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <div class="testimonial-text">"Professional service from start to finish. They planned our entire itinerary seamlessly and made our family vacation completely unforgettable!"</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">ZR</div>
+          <div class="author-info">
+            <h4>Zaim Ruslan</h4>
+            <p>Chennai</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <div class="testimonial-text">"Best decision for our Kerala trip! Great communication, always punctual, and our chauffeur knew every scenic spot and viewpoint. Will book again!"</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">A</div>
+          <div class="author-info">
+            <h4>Ameen</h4>
+            <p>Dubai</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Customer Review Submission Box -->
+    <div class="booking-container" style="margin-top: 45px;">
+      <h3 style="text-align: center; font-size: 1.3rem; margin-bottom: 8px;">Leave Your Review</h3>
+      <p style="text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px;">Traveled with us recently? Send us your feedback via WhatsApp.</p>
+      
+      <form id="reviewForm">
+        <div class="form-group">
+          <label for="revName">Your Name</label>
+          <input type="text" id="revName" class="form-control" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <label for="revCity">Your City / Country</label>
+          <input type="text" id="revCity" class="form-control" placeholder="e.g. Bangalore, Dubai" required>
+        </div>
+        <div class="form-group">
+          <label for="revRating">Rating</label>
+          <select id="revRating" class="form-control">
+            <option value="5 Stars ⭐⭐⭐⭐⭐">5 Stars - Excellent Experience</option>
+            <option value="4 Stars ⭐⭐⭐⭐">4 Stars - Very Good</option>
+            <option value="3 Stars ⭐⭐⭐">3 Stars - Good</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="revMessage">Your Experience</label>
+          <textarea id="revMessage" class="form-control" rows="3" placeholder="Share your experience about the driver, vehicle, and trip..." required style="resize: vertical;"></textarea>
+        </div>
+        <button type="submit" class="btn-whatsapp" style="width: 100%; justify-content: center; font-size: 0.95rem; margin-top: 10px;">
+          <i class="fa-brands fa-whatsapp"></i> Submit Review via WhatsApp
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Fleet Showcase -->
+  <section id="vehicle">
+    <div class="section-title">
+      <h2>Travel in Comfort</h2>
+      <p>Clean, reliable, and air-conditioned private fleet with experienced driver support.</p>
+    </div>
+    <div class="vehicle-box">
+      <div class="vehicle-info">
+        <h3>Premium Fleet</h3>
+        <p>Our carefully selected fleet of well-maintained vehicles ensures a comfortable and safe journey for solo travelers, couples, families, and group tours.</p>
+        <ul class="features-list">
+          <li><i class="fa-solid fa-circle-check"></i> Powerful Climate AC</li>
+          <li><i class="fa-solid fa-circle-check"></i> Well-Maintained Vehicles</li>
+          <li><i class="fa-solid fa-circle-check"></i> Clean &amp; Sanitized Interiors</li>
+          <li><i class="fa-solid fa-circle-check"></i> Fuel, Toll &amp; Parking Included</li>
+          <li><i class="fa-solid fa-circle-check"></i> Professional Drivers</li>
+          <li><i class="fa-solid fa-circle-check"></i> Safety &amp; Security</li>
+        </ul>
+      </div>
+      <div style="text-align: center;">
+        <i class="fa-solid fa-car-side" style="font-size: 7rem; color: var(--primary); opacity: 0.85;"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Section -->
+  <section id="booking">
+    <div class="section-title">
+      <h2>Instant Trip Inquiry</h2>
+      <p>Fill out the details below to send a direct booking request via WhatsApp.</p>
+    </div>
+    <div class="booking-container">
+      <form id="tripForm">
+        <div class="form-group">
+          <label for="custName">Full Name</label>
+          <input type="text" id="custName" class="form-control" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <label for="custEmail">Email Address</label>
+          <input type="email" id="custEmail" class="form-control" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="custPhone">Phone Number</label>
+          <input type="tel" id="custPhone" class="form-control" placeholder="+91 98765 43210" required>
+        </div>
+        <button type="submit" class="btn-whatsapp" style="width: 100%; justify-content: center; font-size: 1rem; margin-top: 10px;">
+          <i class="fa-brands fa-whatsapp"></i> Send Booking via WhatsApp
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About Us</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Hotspot Triviano is your trusted travel partner for exploring Kerala, offering reliable private cabs and personalized itineraries.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#packages">Tour Packages</a></li>
+          <li><a href="#gallery">Photo Gallery</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#booking">Book Now</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact Info</h3>
+        <ul>
+          <li><i class="fa-solid fa-phone"></i> <a href="tel:+919562779369">+91 95627 79369</a></li>
+          <li><i class="fa-solid fa-envelope"></i> <a href="mailto:hotspottriviano@gmail.com">hotspottriviano@gmail.com</a></li>
+          <li><i class="fa-solid fa-location-dot"></i> Trivandrum, Kerala</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <ul style="display: flex; gap: 15px;">
+          <li><a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook" style="font-size: 1.2rem;"></i></a></li>
+          <li><a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram" style="font-size: 1.2rem;"></i></a></li>
+          <li><a href="https://wa.me/919562779369" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Hotspot Triviano Tours &amp; Travels. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Action -->
+  <a href="https://wa.me/919562779369?text=Hello%20Hotspot%20Triviano,%20I%20have%20an%20inquiry%20regarding%20travel%20packages." target="_blank" rel="noopener noreferrer" class="floating-wa" title="WhatsApp Us">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile nav toggle
+    const toggleBtn = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    toggleBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('active'));
+    });
+
+    // Booking form submission via WhatsApp
+    document.getElementById('tripForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('custName').value.trim();
+      const email = document.getElementById('custEmail').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+
+      const message = `*🎯 Trip Inquiry - Hotspot Triviano*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Phone:* ${encodeURIComponent(phone)}%0A%0APlease share available packages and pricing details.`;
+      
+      window.open(`https://wa.me/919562779369?text=${message}`, '_blank');
+    });
+
+    // Review form submission via WhatsApp
+    document.getElementById('reviewForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('revName').value.trim();
+      const city = document.getElementById('revCity').value.trim();
+      const rating = document.getElementById('revRating').value;
+      const review = document.getElementById('revMessage').value.trim();
+
+      const message = `*🌟 Guest Review - Hotspot Triviano*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*City:* ${encodeURIComponent(city)}%0A*Rating:* ${encodeURIComponent(rating)}%0A*Review:* ${encodeURIComponent(review)}`;
+
+      window.open(`https://wa.me/919562779369?text=${message}`, '_blank');
+    });
+  </script>
+</body>
+</html>
